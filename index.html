@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+      
+<form action="">
+     
+    <div id="passerror" class="color_error"></div>
+    <input type="password" name="" id="pass" placeholder="password"></br>
+    <input type="password" name="" id="repass" placeholder="repassword"></br>
+
+    <input type="submit" value="Submit" onclick="return valid()">
+
+</form>
+
+
+<script>
+
+  var perror = document.getElementById("passerror");
+  var fpass = document.getElementById("pass");
+
+
+  var rpass = document.getElementById("repass");
+
+
+  function valid() {
+      if (fpass.value == "") {
+        //   alert("Enter your password");
+        fpass.style.border = "2px solid red";
+        perror.innerHTML= "Enter your password !";
+        fpass.focus();
+          return false;
+      }
+
+
+      if (fpass.value != rpass.value) {
+          fpass.style.border = "2px solid red";
+          rpass.style.border = "2px solid red";
+          perror.innerHTML = "Password not match!"
+          fpass.focus();
+          return false;
+      }
+
+
+
+
+
+      if (fpass.value.length <=6) {
+          fpass.style.border = "2px solid red";
+          perror.innerHTML= "Password must be needed 6 degit";
+          fpass.focus();
+          return false;
+      }
+  }
+
+
+
+
+function error() {
+    if (fpass.value != "") {
+        fpass.style.border = "2px solid #ddd";
+        perror.innerHTML= " ";
+
+    }
+}
+
+fpass.addEventListener('blur',error,false);
+
+</script>
+
+
+</body>
+</html>
